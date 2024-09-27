@@ -9,7 +9,7 @@
             <TextBox Name="Pos1X" Width="60" Text="2735" Margin="5"/>
             <TextBox Name="Pos1Y" Width="60" Text="400" Margin="5"/>
             <TextBlock Text="Hotkey:" VerticalAlignment="Center" Margin="10,0,0,0"/>
-            <TextBox Name="Hotkey1" Text="a" Width="60" Margin="5"/>
+            <TextBox Name="Hotkey1" Text="A" Width="60" Margin="5"/>
         </StackPanel>
 
         
@@ -18,7 +18,7 @@
             <TextBox Name="Pos2X" Width="60" Text="2857" Margin="5"/>
             <TextBox Name="Pos2Y" Width="60" Text="400" Margin="5"/>
             <TextBlock Text="Hotkey:" VerticalAlignment="Center" Margin="10,0,0,0"/>
-            <TextBox Name="Hotkey2" Text="s" Width="60" Margin="5"/>
+            <TextBox Name="Hotkey2" Text="S" Width="60" Margin="5"/>
         </StackPanel>
 
         
@@ -27,7 +27,7 @@
             <TextBox Name="Pos3X" Width="60" Text="3000" Margin="5"/>
             <TextBox Name="Pos3Y" Width="60" Text="400" Margin="5"/>
             <TextBlock Text="Hotkey:" VerticalAlignment="Center" Margin="10,0,0,0"/>
-            <TextBox Name="Hotkey3" Text="d" Width="60" Margin="5"/>
+            <TextBox Name="Hotkey3" Text="D" Width="60" Margin="5"/>
         </StackPanel>
 
         
