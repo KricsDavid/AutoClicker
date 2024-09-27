@@ -1,4 +1,5 @@
 ﻿<Window x:Class="AutoClicker.MainWindow"
+        Icon="AutoClicker.ico"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Auto Clicker" Height="350" Width="400">

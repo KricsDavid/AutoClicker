@@ -6,6 +6,19 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>AutoClicker.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AutoClicker.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="AutoClicker.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="AutoClicker.ico" />
+  </ItemGroup>
 
 </Project>
