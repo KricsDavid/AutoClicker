@@ -16,18 +16,18 @@ namespace AutoClicker
         {
             InitializeComponent();
 
-            // Set default values for click positions
-           /* Pos1X.Text = "100";
-            Pos1Y.Text = "100";
-            Hotkey1.Text = "F1";
+            
+            Pos1X.Text = "2735";
+            Pos1Y.Text = "400";
+            Hotkey1.Text = "A";
 
-            Pos2X.Text = "200";
-            Pos2Y.Text = "200";
-            Hotkey2.Text = "F2";
+            Pos2X.Text = "2857";
+            Pos2Y.Text = "400";
+            Hotkey2.Text = "S";
 
-            Pos3X.Text = "300";
-            Pos3Y.Text = "300";
-            Hotkey3.Text = "F3";*/
+            Pos3X.Text = "3000";
+            Pos3Y.Text = "400";
+            Hotkey3.Text = "D";
 
            
             RegisterHotKey(new WindowInteropHelper(this).Handle, 10, 0, KeyInterop.VirtualKeyFromKey(Key.F));
