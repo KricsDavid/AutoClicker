@@ -1,0 +1,32 @@
+﻿<Window x:Class="AutoClicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Auto Clicker" Height="500" Width="400">
+    <Grid Margin="10">
+        <TextBlock Text="Click Position 1 (X, Y):" Margin="0,10,0,0"/>
+        <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+            <TextBox Name="Pos1X" Width="50" Text="2735" Margin="5"/>
+            <TextBox Name="Pos1Y" Width="50" Text="400" Margin="5"/>
+            <TextBlock Text="Hotkey:" Margin="10,0,0,0"/>
+            <TextBox Name="Hotkey1" Text="a" Width="50" Margin="5"/>
+        </StackPanel>
+
+        <TextBlock Text="Click Position 2 (X, Y):" Margin="0,80,0,0"/>
+        <StackPanel Orientation="Horizontal" Margin="0,100,0,0">
+            <TextBox Name="Pos2X" Width="50" Text="2857" Margin="5"/>
+            <TextBox Name="Pos2Y" Width="50" Text="400" Margin="5"/>
+            <TextBlock Text="Hotkey:" Margin="10,0,0,0"/>
+            <TextBox Name="Hotkey2" Text="s" Width="50" Margin="5"/>
+        </StackPanel>
+
+        <TextBlock Text="Click Position 3 (X, Y):" Margin="0,150,0,0"/>
+        <StackPanel Orientation="Horizontal" Margin="0,170,0,0">
+            <TextBox Name="Pos3X" Text="3000" Width="50" Margin="5"/>
+            <TextBox Name="Pos3Y" Text="400" Width="50" Margin="5"/>
+            <TextBlock Text="Hotkey:" Margin="10,0,0,0"/>
+            <TextBox Name="Hotkey3" Text="d" Width="50" Margin="5"/>
+        </StackPanel>
+
+        <Button Content="Start" Name="StartButton" Width="100" Height="30" Margin="254,262,0,22" HorizontalAlignment="Left" Click="StartButton_Click"/>
+    </Grid>
+</Window>
