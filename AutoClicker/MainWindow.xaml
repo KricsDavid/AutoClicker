@@ -26,7 +26,7 @@
             <TextBlock Text="Hotkey:" Margin="10,0,0,0"/>
             <TextBox Name="Hotkey3" Text="d" Width="50" Margin="5"/>
         </StackPanel>
-        <Button Content="Stop" Name="StopButton" Width="100" Height="30" Margin="254,277,0,157" HorizontalAlignment="Left" Click="StopButton_Click"/>
-        <Button Content="Start" Name="StartButton" Width="100" Height="30" Margin="254,262,0,22" HorizontalAlignment="Left" Click="StartButton_Click"/>
+        <Button Content="Stop(G)" Name="StopButton" Width="100" Height="30" Margin="254,277,0,157" HorizontalAlignment="Left" Click="StopButton_Click"/>
+        <Button Content="Start(F)" Name="StartButton" Width="100" Height="30" Margin="254,262,0,22" HorizontalAlignment="Left" Click="StartButton_Click"/>
     </Grid>
 </Window>

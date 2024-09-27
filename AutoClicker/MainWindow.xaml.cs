@@ -16,7 +16,7 @@ namespace AutoClicker
         {
             InitializeComponent();
 
-           
+            // Set default values for click positions
            /* Pos1X.Text = "100";
             Pos1Y.Text = "100";
             Hotkey1.Text = "F1";
@@ -28,10 +28,18 @@ namespace AutoClicker
             Pos3X.Text = "300";
             Pos3Y.Text = "300";
             Hotkey3.Text = "F3";*/
+
+            // Register hotkeys for Start (F) and Stop (G) when the window is created
+            RegisterHotKey(new WindowInteropHelper(this).Handle, 10, 0, KeyInterop.VirtualKeyFromKey(Key.F)); // Start hotkey
+            RegisterHotKey(new WindowInteropHelper(this).Handle, 11, 0, KeyInterop.VirtualKeyFromKey(Key.G)); // Stop hotkey
+
+            ComponentDispatcher.ThreadPreprocessMessage += HandleHotkeyPress;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+           
+
             try
             {
                 // Fetching positions
@@ -49,9 +57,8 @@ namespace AutoClicker
                     RegisterHotKey(new WindowInteropHelper(this).Handle, i + 1, 0, KeyInterop.VirtualKeyFromKey(hotkeys[i]));
                 }
 
-                ComponentDispatcher.ThreadPreprocessMessage += HandleHotkeyPress;
                 isRunning = true;
-                MessageBox.Show("Hotkeys registered. Ready to click!", "Auto Clicker");
+                
             }
             catch (Exception ex)
             {
@@ -63,19 +70,13 @@ namespace AutoClicker
         {
             if (isRunning)
             {
-                // Unregister all hotkeys
+                // Unregister all click hotkeys
                 for (int i = 1; i <= 3; i++)
                 {
                     UnregisterHotKey(new WindowInteropHelper(this).Handle, i);
                 }
 
-                ComponentDispatcher.ThreadPreprocessMessage -= HandleHotkeyPress;
                 isRunning = false;
-                MessageBox.Show("Auto clicker stopped.", "Auto Clicker");
-            }
-            else
-            {
-                MessageBox.Show("The auto clicker is not running.", "Auto Clicker");
             }
         }
 
@@ -84,11 +85,21 @@ namespace AutoClicker
             const int WM_HOTKEY = 0x0312;
             if (msg.message == WM_HOTKEY)
             {
-                int id = msg.wParam.ToInt32() - 1;
-                if (id >= 0 && id < clickPositions.Length)
+                int id = msg.wParam.ToInt32();
+
+                if (id >= 1 && id <= 3)
                 {
-                    SetCursorPos(clickPositions[id].X, clickPositions[id].Y);
+                    int clickIndex = id - 1;
+                    SetCursorPos(clickPositions[clickIndex].X, clickPositions[clickIndex].Y);
                     MouseClick();
+                }
+                else if (id == 10) // Hotkey for starting (F key)
+                {
+                    StartButton_Click(null, null);
+                }
+                else if (id == 11) // Hotkey for stopping (G key)
+                {
+                    StopButton_Click(null, null);
                 }
             }
         }
@@ -116,7 +127,17 @@ namespace AutoClicker
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            StopButton_Click(null, null);
+
+            // Unregister all hotkeys
+            for (int i = 1; i <= 3; i++)
+            {
+                UnregisterHotKey(new WindowInteropHelper(this).Handle, i);
+            }
+
+            UnregisterHotKey(new WindowInteropHelper(this).Handle, 10); // Unregister the Start hotkey (F)
+            UnregisterHotKey(new WindowInteropHelper(this).Handle, 11); // Unregister the Stop hotkey (G)
+            
+            ComponentDispatcher.ThreadPreprocessMessage -= HandleHotkeyPress;
         }
 
         private struct POINT
