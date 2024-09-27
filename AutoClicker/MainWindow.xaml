@@ -1,7 +1,7 @@
 ﻿<Window x:Class="AutoClicker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Auto Clicker" Height="500" Width="400">
+        Title="Auto Clicker" Height="700" Width="400">
     <Grid Margin="10">
         <TextBlock Text="Click Position 1 (X, Y):" Margin="0,10,0,0"/>
         <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
@@ -26,7 +26,7 @@
             <TextBlock Text="Hotkey:" Margin="10,0,0,0"/>
             <TextBox Name="Hotkey3" Text="d" Width="50" Margin="5"/>
         </StackPanel>
-
+        <Button Content="Stop" Name="StopButton" Width="100" Height="30" Margin="254,277,0,157" HorizontalAlignment="Left" Click="StopButton_Click"/>
         <Button Content="Start" Name="StartButton" Width="100" Height="30" Margin="254,262,0,22" HorizontalAlignment="Left" Click="StartButton_Click"/>
     </Grid>
 </Window>

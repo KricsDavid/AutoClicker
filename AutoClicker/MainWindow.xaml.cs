@@ -10,10 +10,24 @@ namespace AutoClicker
     {
         private POINT[] clickPositions = new POINT[3];
         private Key[] hotkeys = new Key[3];
+        private bool isRunning = false;
 
         public MainWindow()
         {
             InitializeComponent();
+
+           
+           /* Pos1X.Text = "100";
+            Pos1Y.Text = "100";
+            Hotkey1.Text = "F1";
+
+            Pos2X.Text = "200";
+            Pos2Y.Text = "200";
+            Hotkey2.Text = "F2";
+
+            Pos3X.Text = "300";
+            Pos3Y.Text = "300";
+            Hotkey3.Text = "F3";*/
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
@@ -36,11 +50,32 @@ namespace AutoClicker
                 }
 
                 ComponentDispatcher.ThreadPreprocessMessage += HandleHotkeyPress;
+                isRunning = true;
                 MessageBox.Show("Hotkeys registered. Ready to click!", "Auto Clicker");
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error");
+            }
+        }
+
+        private void StopButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (isRunning)
+            {
+                // Unregister all hotkeys
+                for (int i = 1; i <= 3; i++)
+                {
+                    UnregisterHotKey(new WindowInteropHelper(this).Handle, i);
+                }
+
+                ComponentDispatcher.ThreadPreprocessMessage -= HandleHotkeyPress;
+                isRunning = false;
+                MessageBox.Show("Auto clicker stopped.", "Auto Clicker");
+            }
+            else
+            {
+                MessageBox.Show("The auto clicker is not running.", "Auto Clicker");
             }
         }
 
@@ -81,11 +116,7 @@ namespace AutoClicker
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            ComponentDispatcher.ThreadPreprocessMessage -= HandleHotkeyPress;
-            for (int i = 1; i <= 3; i++)
-            {
-                UnregisterHotKey(new WindowInteropHelper(this).Handle, i);
-            }
+            StopButton_Click(null, null);
         }
 
         private struct POINT
