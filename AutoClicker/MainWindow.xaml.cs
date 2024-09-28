@@ -70,7 +70,7 @@ namespace AutoClicker
         {
             if (isRunning)
             {
-                // Unregister all click hotkeys
+                
                 for (int i = 1; i <= 3; i++)
                 {
                     UnregisterHotKey(new WindowInteropHelper(this).Handle, i);
@@ -92,6 +92,7 @@ namespace AutoClicker
                     int clickIndex = id - 1;
                     SetCursorPos(clickPositions[clickIndex].X, clickPositions[clickIndex].Y);
                     MouseClick();
+                    SetCursorPos(960,520);
                 }
                 else if (id == 10) 
                 {
